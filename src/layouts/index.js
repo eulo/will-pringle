@@ -1,8 +1,8 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Header from '../components/header'
+import Footer from '../components/footer'
 import WebGLCanvas from '../components/webgl-canvas'
 
 import '../assets/scss/main.scss'
