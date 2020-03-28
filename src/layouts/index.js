@@ -21,12 +21,23 @@ const Layout = ({ children, location }) => (
           }
         }
       }
+      {
+        site {
+          siteMetadata {
+            title
+            description
+            author
+          }
+        }
+      }
     `}
     render={data => {
       return (
         <>
-          <Header />
-          <main>{ children }</main>
+          <div className='wrap'>
+            <Header />
+            <main>{ children }</main>
+          </div>
           <Footer />
         </>
       )
