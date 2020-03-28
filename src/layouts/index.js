@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import WebGLCanvas from '../components/webgl-canvas'
 
 import '../assets/scss/main.scss'
 
@@ -39,6 +40,7 @@ const Layout = ({ children, location }) => (
             <main>{ children }</main>
           </div>
           <Footer />
+          <WebGLCanvas />
         </>
       )
     }}

@@ -34,6 +34,15 @@ p, li, span {
   display: flex;
 }
 
+#webGLCanvas {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
 main {
   padding: 32px 24px;
   min-height:100%;
@@ -87,12 +96,36 @@ header {
 
 }
 
+.about {
+  padding-bottom: 48px;
+}
+
 .projects {
   padding-bottom: 48px;
 
   &__blocks {
     display: flex;
     flex-wrap: wrap;
+  }
+}
+
+.project {
+  @include breakpoint(medium) {
+    display: flex;
+  }
+
+  &__content {
+    max-width: 400px;
+    padding: 0 24px 0 0;
+  }
+
+  &__gallery {
+    flex: 1;
+
+    img {
+      width: 100%;
+      display: block;
+    }
   }
 }
 
@@ -136,13 +169,6 @@ header {
     bottom: -1px;
     right: -1px;
   }
-}
-
-#webGLCanvas{
-  z-index:-1;
-  position:absolute;
-  top:0;
-  left:0
 }
 
 .glitch {
