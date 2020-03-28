@@ -1,34 +1,45 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: 'Will Pringle - Freelance Web Developer Melbourne',
+    description: 'I\'m a freelance wordpress developer from Melbourne with over 10 years of experience. Working in Javascript, React js, PHP, Wordpress, Laravel, iOS & Android.',
+    siteUrl: 'https://www.will-pringle.com',
+    author: 'CodeDrips',
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-layout',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
+    'gatsby-plugin-sitemap',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-wordpress',
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        baseUrl: 'tommb.com.au',
+        protocol: 'https',
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-31496425-2',
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        exclude: [],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-robots-txt',
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
+        host: 'https://www.will-pringle.com',
+        sitemap: 'https://www.will-pringle.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
-}
+};
