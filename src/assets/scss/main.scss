@@ -2,6 +2,8 @@
 @import 'global/normalize';
 @import 'global/fonts';
 
+$color--primary: #333;
+
 body{
   font-family:'Eurostile', Helvetica, sans-serif;
   background-color:#A3A2B0;
@@ -17,8 +19,15 @@ html{
   height:100%
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p {
   font-weight: 400;
+  margin: 0 0 1.45rem;
+  color: $color--primary;
+  max-width: 600px;
+}
+
+p, li, span {
+  color: $color--primary;
 }
 
 .wrap {
@@ -26,9 +35,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 main {
+  padding: 32px 24px;
   min-height:100%;
   position:relative;
   flex: 1;
+  max-width: calc(100vw - 240px);
+
+  a {
+    @include hoverline($color--primary);
+  }
 }
 
 header {
@@ -39,36 +54,88 @@ header {
     top: 0;
   }
 
-  a{
-    text-decoration:none;
-    color:#333;
-    &:hover {
-      text-shadow:0px 0px 3px rgba(28,78,117,0.4);
-
-    }
-  }
 
   h1 {
     font-size:2rem;
     color: #2F2727;
     text-align:center;
-    padding: 20px 0;
+    padding: 24px 0;
     margin: 0;
+
+    a {
+      color: $color--primary;
+      text-decoration: none;
+    }
   }
 
   nav {
     ul {
       margin: 0;
-      padding: 0;
+      padding: 0 0 0 50px;
 
       li{
-        margin-left:50px; 
+        margin: 0 0 8px 0; 
         text-align:left;
         list-style:none;
+
+        a {
+          @include hoverline($color--primary);
+        }
       }
     }
   }
 
+}
+
+.projects {
+  padding-bottom: 48px;
+
+  &__blocks {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.work {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  margin: 0 24px 24px 0;
+  flex: 1 0 auto;
+  background-color: #fff;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: all .3s ease-in-out;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 0 0.625em 0 rgba(100,116,128,.16), 0 0.25em 0.5em -0.375em rgba(100,116,128,.8);
+
+  &:before {
+    display: none;
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+
+  &__title, &__year {
+    position: absolute;
+    left: 30px;
+    font-size: 16px;
+    top: 30px;
+  }
+  &__year {
+    bottom: 30px;
+    top: auto;
+  }
+  &__image {
+    width: 60%;
+    position: absolute;
+    transition: all .3s ease-in-out;
+    bottom: -1px;
+    right: -1px;
+  }
 }
 
 #webGLCanvas{

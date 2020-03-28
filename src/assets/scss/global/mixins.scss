@@ -14,6 +14,9 @@
   margin-bottom: -2px;
   cursor: pointer;
   color: $color;
+  display: inline-block;
+  text-decoration: none;
+  vertical-align: bottom;
 
   &::before {
     position: absolute;
