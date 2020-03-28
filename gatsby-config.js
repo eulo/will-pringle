@@ -13,6 +13,18 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `will-pringle`,
+        short_name: `wp`,
+        start_url: `/`,
+        background_color: `#000000`,
+        theme_color: `#000000`,
+        display: `minimal-ui`,
+        icon: `src/assets/images/favicon.jpg`, // This path is relative to the root of the site.
+      },
+    },
+    {
       resolve: 'gatsby-source-wordpress',
       options: {
         baseUrl: 'tommb.com.au',
