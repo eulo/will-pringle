@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+
 
 import Link from '../utils/link'
 import SEO from '../components/seo'
@@ -8,7 +10,7 @@ class ProjectTemplate extends Component {
 
   renderImage(image, i) {
     if (image === null || !image.localFile) return
-    return <img key={i} src={image.localFile.childImageSharp.original.src} alt={image.alt_text} />
+    return <Img key={i} fluid={image.localFile.childImageSharp.fluid} alt={image.alt_text} />
   }
 
   render() {
@@ -47,11 +49,15 @@ export const query = graphql`
         role
         agency
         live_url
-        rollover_image {
-          ...original
-        }
         gallery {
-          ...original
+          alt_text
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 740) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }

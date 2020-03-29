@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import Img from 'gatsby-image'
 import Link from '../utils/link'
 
 class WorkBlock extends Component {
   renderImage(image) {
     if (image === null || !image.localFile) return
-    return <img className='work__image' src={image.localFile.childImageSharp.original.src} alt={image.alt_text} />
+    return (
+      <div className='work__image'>
+        <Img fluid={image.localFile.childImageSharp.fluid} alt={image.alt_text} />
+      </div>
+    )
   }
 
   render() {

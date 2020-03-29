@@ -42,12 +42,15 @@ export default props => (
                 agency
                 live_url
                 rollover_image {
-                  ...original
+                  alt_text
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 350) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
                 }
-                gallery {
-                  ...original
-                }
-
               }
             }
           }
