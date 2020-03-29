@@ -135,7 +135,7 @@ function track_touch_start(event)
 	{
 		var t = event.changedTouches[0];
 		touchID = t.identifier;
-		track_start( t.pageX, t.pageY );
+		track_start( t.screenX, t.screenY );
 	}
 	//event.preventDefault();
 	return true;
@@ -152,7 +152,7 @@ function track_touch_move(event)
 			t = ts[n];
 			if ( t.identifier == touchID )
 			{
-				track_move( t.pageX, t.pageY );
+				track_move( t.screenX, t.screenY );
 				break;
 			}
 		}
