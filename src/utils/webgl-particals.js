@@ -110,13 +110,13 @@ var touched = false,
 
 function track_init( e ) {
 		// set-up touch interaction
-		document.addEventListener( 'touchstart', track_touch_start, false );
-		document.addEventListener( 'touchmove', track_touch_move, false );
-		document.addEventListener( 'touchend', track_touch_end, false );
+		document.addEventListener( 'touchstart', track_touch_start );
+		document.addEventListener( 'touchmove', track_touch_move );
+		document.addEventListener( 'touchend', track_touch_end );
 		// set-up mouse interaction
-		document.addEventListener( 'mousedown', track_mouse_down, false );
-		document.addEventListener( 'mousemove', track_mouse_move, false );
-		document.addEventListener( 'mouseup', track_mouse_up, false );
+		document.addEventListener( 'mousedown', track_mouse_down );
+		document.addEventListener( 'mousemove', track_mouse_move );
+		document.addEventListener( 'mouseup', track_mouse_up );
 
 		tw = window.innerWidth/2;
 		th = window.innerHeight/2;
@@ -137,7 +137,7 @@ function track_touch_start(event)
 		touchID = t.identifier;
 		track_start( t.pageX, t.pageY );
 	}
-	event.preventDefault();
+	//event.preventDefault();
 	return true;
 }
 
@@ -157,7 +157,7 @@ function track_touch_move(event)
 			}
 		}
 	}
-	event.preventDefault();
+	//event.preventDefault();
 	return true;
 }
 
@@ -177,7 +177,7 @@ function track_touch_end(event)
 			}
 		}
 	}
-	event.preventDefault();
+	//event.preventDefault();
 	return true;
 }
 

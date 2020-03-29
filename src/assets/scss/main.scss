@@ -31,7 +31,9 @@ p, li, span {
 }
 
 .wrap {
-  display: flex;
+  @include breakpoint(medium) {
+    display: flex;
+  }
 }
 
 #webGLCanvas {
@@ -48,7 +50,10 @@ main {
   min-height:100%;
   position:relative;
   flex: 1;
-  max-width: calc(100vw - 240px);
+
+  @include breakpoint(medium) {
+    max-width: calc(100vw - 240px);
+  }
 
   a {
     @include hoverline($color--primary);
@@ -56,19 +61,22 @@ main {
 }
 
 header {
-  width: 240px;
+  width: 100%;
 
-  .header__inner {
-    position: sticky;
-    top: 0;
+  @include breakpoint(medium) {
+    width: 240px;
+
+    .header__inner {
+      position: sticky;
+      top: 0;
+    }
   }
-
 
   h1 {
     font-size:2rem;
     color: #2F2727;
-    text-align:center;
-    padding: 24px 0;
+    text-align: left;
+    padding: 24px 24px;
     margin: 0;
 
     a {
@@ -80,7 +88,10 @@ header {
   nav {
     ul {
       margin: 0;
-      padding: 0 0 0 50px;
+      padding: 0 0 0 24px;
+      @include breakpoint(medium) {
+        padding: 0 0 0 48px;
+      }
 
       li{
         margin: 0 0 8px 0; 
